@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="165.0" fitWidth="1280.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../Pictures/Capture1.png" />
+            <Image url="@../../../../../Pictures/Capture1.png" />
          </image>
          <viewport>
             <Rectangle2D width="1280.0" />
@@ -64,5 +64,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Button layoutX="109.0" layoutY="670.0" mnemonicParsing="false" onAction="#switchToOrder" style="-fx-background-color: white;" text="Back to Order">
+         <font>
+            <Font name="DejaVu Sans Mono Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

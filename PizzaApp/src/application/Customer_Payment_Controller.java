@@ -21,4 +21,14 @@ public class Customer_Payment_Controller {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void switchToOrder(ActionEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("Customer_Order.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+
 }
