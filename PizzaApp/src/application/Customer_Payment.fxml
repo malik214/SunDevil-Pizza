@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #8e8d8d;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Customer_Payment_Controller">
+   <children>
+      <ImageView fitHeight="165.0" fitWidth="1280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../Pictures/Capture1.png" />
+         </image>
+         <viewport>
+            <Rectangle2D width="1280.0" />
+         </viewport>
+      </ImageView>
+      <Pane layoutY="166.0" prefHeight="160.0" prefWidth="1280.0" style="-fx-background-color: #8C1D40;">
+         <children>
+            <Text layoutX="492.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Checkout" wrappingWidth="295.95611572265625">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="56.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Text layoutX="533.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Payment" wrappingWidth="215.0">
+         <font>
+            <Font name="DejaVu Sans Bold" size="41.0" />
+         </font>
+      </Text>
+      <Text layoutX="53.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Cost" wrappingWidth="255.0">
+         <font>
+            <Font name="DejaVu Sans Bold" size="41.0" />
+         </font>
+      </Text>
+      <Text layoutX="937.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick-Up Time" wrappingWidth="303.0">
+         <font>
+            <Font name="DejaVu Sans Bold" size="41.0" />
+         </font>
+      </Text>
+      <Text layoutX="542.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ASURITE ID" wrappingWidth="198.0">
+         <font>
+            <Font name="DejaVu Sans Bold" size="30.0" />
+         </font>
+      </Text>
+      <Pane layoutX="521.0" layoutY="499.0" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: white;" />
+      <Text layoutX="559.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="164.0">
+         <font>
+            <Font name="DejaVu Sans Bold" size="30.0" />
+         </font>
+      </Text>
+      <Pane layoutX="521.0" layoutY="599.0" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: white;" />
+      <Pane layoutX="43.0" layoutY="430.0" prefHeight="211.0" prefWidth="255.0" style="-fx-background-color: white;" />
+      <Pane layoutX="980.0" layoutY="430.0" prefHeight="165.0" prefWidth="215.0" style="-fx-background-color: white;" />
+      <Button layoutX="979.0" layoutY="625.0" mnemonicParsing="false" onAction="#switchToConfirmation" prefHeight="57.0" prefWidth="215.0" style="-fx-background-color: #FFC627;" text="Place Order" textAlignment="CENTER">
+         <font>
+            <Font name="DejaVu Sans Mono Bold" size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</Pane>
