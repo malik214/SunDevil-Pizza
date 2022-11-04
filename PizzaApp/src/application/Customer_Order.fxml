@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -47,10 +48,13 @@
       </Pane>
       <Pane layoutX="44.0" layoutY="485.0" prefHeight="89.0" prefWidth="241.0" style="-fx-background-color: white;">
          <children>
-            <RadioButton layoutX="19.0" layoutY="31.0" mnemonicParsing="false" text="Thin N' Crispy">
+            <RadioButton layoutX="19.0" layoutY="31.0" mnemonicParsing="false" onAction="#setCrispyCrust" text="Thin N' Crispy">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="TG1" />
+               </toggleGroup>
             </RadioButton>
          </children>
       </Pane>
@@ -61,7 +65,7 @@
       </Text>
       <Pane layoutX="44.0" layoutY="610.0" prefHeight="89.0" prefWidth="241.0" style="-fx-background-color: white;">
          <children>
-            <RadioButton layoutX="19.0" layoutY="31.0" mnemonicParsing="false" text="Pan Pizza">
+            <RadioButton layoutX="19.0" layoutY="31.0" mnemonicParsing="false" onAction="#setPanCrust" text="Pan Pizza" toggleGroup="$TG1">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>
@@ -70,7 +74,7 @@
       </Pane>
       <Pane layoutX="44.0" layoutY="359.0" prefHeight="89.0" prefWidth="241.0" style="-fx-background-color: white;">
          <children>
-            <RadioButton layoutX="19.0" layoutY="31.0" mnemonicParsing="false" text="Stuffed Crust">
+            <RadioButton layoutX="19.0" layoutY="31.0" mnemonicParsing="false" onAction="#setStuffedCrust" text="Stuffed Crust" toggleGroup="$TG1">
                <font>
                   <Font name="DejaVu Sans Mono Bold" size="20.0" />
                </font>

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -62,7 +63,6 @@
          <children>
             <TextField layoutX="34.0" layoutY="1.0" />
          </children></Pane>
-      <Pane layoutX="43.0" layoutY="430.0" prefHeight="211.0" prefWidth="255.0" style="-fx-background-color: white;" />
       <Pane layoutX="980.0" layoutY="430.0" prefHeight="165.0" prefWidth="215.0" style="-fx-background-color: white;" />
       <Button layoutX="979.0" layoutY="625.0" mnemonicParsing="false" onAction="#switchToConfirmation" prefHeight="57.0" prefWidth="215.0" style="-fx-background-color: #FFC627;" text="Place Order" textAlignment="CENTER">
          <font>
@@ -71,10 +71,11 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="109.0" layoutY="670.0" mnemonicParsing="false" onAction="#switchToOrder" style="-fx-background-color: white;" text="Back to Order">
+      <Button layoutX="119.0" layoutY="670.0" mnemonicParsing="false" onAction="#switchToOrder" style="-fx-background-color: white;" text="Back to Order">
          <font>
             <Font name="DejaVu Sans Mono Bold" size="13.0" />
          </font>
       </Button>
+      <TextArea fx:id="pizzaText" layoutX="46.0" layoutY="420.0" prefHeight="211.0" prefWidth="269.0" text="Crust: " />
    </children>
 </Pane>
