@@ -15,12 +15,18 @@ public class Pizza {
 	}
 	
 	public void setToppings(String topping) {
-		toppings.add(topping);
+		if (toppings.contains(topping)) {
+			toppings.remove(topping);
+		}
+		
+		else {
+			toppings.add(topping);
+		}
+		
+		
 	}
 	
-	public void removeToppings(String topping) {
-		toppings.remove(topping);
-	}
+	
 	
 	public void setCrust(String crustType) {
 		this.crustType = crustType;

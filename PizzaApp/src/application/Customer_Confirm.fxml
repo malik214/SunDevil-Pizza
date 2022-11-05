@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="165.0" fitWidth="1280.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Pictures/Capture1.png" />
+            <Image url="@../../pictures/Capture1.png" />
          </image>
          <viewport>
             <Rectangle2D width="1280.0" />

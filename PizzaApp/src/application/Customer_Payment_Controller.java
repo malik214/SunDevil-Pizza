@@ -37,8 +37,9 @@ public class Customer_Payment_Controller {
 	
 	public void displayPizza(Pizza pizza){
 		pizzaText.setText("Pizza: "+ pizza.getCrust() + "      $12.99\n");
+		pizzaText.appendText(pizza.getToppings());
 		
-		pizzaText.setText(pizza.getToppings());
+		
 		
 		
 	}

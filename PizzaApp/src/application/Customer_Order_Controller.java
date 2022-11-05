@@ -3,10 +3,12 @@ package application;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 
 public class Customer_Order_Controller {
@@ -15,6 +17,9 @@ public class Customer_Order_Controller {
 	private Parent root;
 	
 	 Pizza myPizza = new Pizza();
+	 
+	 @FXML
+	 CheckBox topping;
 
 	public void switchToPayment(ActionEvent event) throws IOException {
 		
@@ -27,7 +32,7 @@ public class Customer_Order_Controller {
 		paymentController.displayPizza(myPizza);
 		
 		
-		// root = FXMLLoader.load(getClass().getResource("Customer_Payment.fxml"));
+		root = FXMLLoader.load(getClass().getResource("Customer_Payment.fxml"));
 		
 		
 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -49,6 +54,10 @@ public class Customer_Order_Controller {
 	public void setPanCrust(ActionEvent event) throws IOException{
 		myPizza.setCrust("");
 		myPizza.setCrust("Pan Pizza");
+	}
+	
+	public void addTopping(ActionEvent event) throws IOException{
+		myPizza.setToppings(topping.getText());
 	}
 	
 
