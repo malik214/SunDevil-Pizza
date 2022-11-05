@@ -37,7 +37,7 @@ public class Pizza {
 		Iterator<String> it = toppings.iterator();
 	
 	while (it.hasNext()) {
-		result += it.next() + "\n";
+		result += it.next() + "             $2.99\n";
 	}
 	
 	return result;
