@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -52,17 +53,14 @@
       </Text>
       <Pane layoutX="521.0" layoutY="499.0" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: white;">
          <children>
-            <TextField layoutX="34.0" layoutY="1.0" />
+            <TextField alignment="CENTER" layoutX="34.0" layoutY="1.0" promptText="Username" />
          </children></Pane>
       <Text layoutX="559.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="164.0">
          <font>
             <Font name="DejaVu Sans Bold" size="30.0" />
          </font>
       </Text>
-      <Pane layoutX="521.0" layoutY="599.0" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: white;">
-         <children>
-            <TextField layoutX="34.0" layoutY="1.0" />
-         </children></Pane>
+      <Pane layoutX="521.0" layoutY="599.0" prefHeight="26.0" prefWidth="238.0" style="-fx-background-color: white;" />
       <Pane layoutX="980.0" layoutY="430.0" prefHeight="165.0" prefWidth="215.0" style="-fx-background-color: white;" />
       <Button layoutX="979.0" layoutY="625.0" mnemonicParsing="false" onAction="#switchToConfirmation" prefHeight="57.0" prefWidth="215.0" style="-fx-background-color: #FFC627;" text="Place Order" textAlignment="CENTER">
          <font>
@@ -77,5 +75,6 @@
          </font>
       </Button>
       <Label fx:id="labelText" layoutX="45.0" layoutY="428.0" prefHeight="181.0" prefWidth="255.0" style="-fx-background-color: white;" />
+      <PasswordField alignment="CENTER" layoutX="555.0" layoutY="600.0" promptText="password" />
    </children>
 </Pane>
