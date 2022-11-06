@@ -18,6 +18,7 @@ public class Customer_Payment_Controller {
 
 	@FXML
 	Label labelText;
+	
 
 	public void switchToConfirmation(ActionEvent event) throws IOException {
 		root = FXMLLoader.load(getClass().getResource("Customer_Confirm.fxml"));
@@ -37,9 +38,13 @@ public class Customer_Payment_Controller {
 
 	public void displayPizza(Pizza pizza) {
 		
-		labelText.setText( String.format("%-15s %25s", pizza.getCrust(),"$12.99"));
+		labelText.setText(String.format("%-15s %15s", pizza.getCrust(),"$12.99\n") + pizza.getToppings());
 		
 
+	}
+	
+	public void displayDate() {
+		
 	}
 
 }

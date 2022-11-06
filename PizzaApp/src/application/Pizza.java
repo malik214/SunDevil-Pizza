@@ -37,7 +37,7 @@ public class Pizza {
 		Iterator<String> it = toppings.iterator();
 	
 	while (it.hasNext()) {
-		result += it.next() + "             $2.99\n";
+		result += String.format("%-15s %15s\n", it.next(),  "$1.99");
 	}
 	
 	return result;
