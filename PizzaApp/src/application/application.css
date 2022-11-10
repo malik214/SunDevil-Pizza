@@ -1,1 +1,58 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.background {
+	-fx-background-color: #c5c5c5;
+}
+
+.header {
+	-fx-background-color: #8c1d40;
+	-fx-background-radius: 0;
+	-fx-text-fill: #ffffff;
+	-fx-font-size: 36;
+	-fx-font-weight: bold;
+}
+
+.header Text {
+	-fx-fill: #fff;
+	-fx-text-alignment: center;
+}
+
+.sub-header {
+	-fx-background-color: 0;
+}
+
+.sub-header Text {
+	-fx-font-size: 26;
+	-fx-font-weight: bold;
+	-fx-text-alignment: center;
+}
+
+.list-container {
+	-fx-background-color: #e9e9e9;
+	-fx-background-radius: 10;
+	-fx-padding: 8 32 8 32;
+}
+
+.list-item-title {
+	-fx-background-color: 0;
+	-fx-font-size: 18;
+	-fx-font-weight: bold;
+	-fx-text-alignment: left;
+}
+
+.list-item {
+	-fx-background-color: 0;
+	-fx-font-size: 18;
+	-fx-font-weight: normal;
+	-fx-text-alignment: left;
+}
+
+.rounded-button {
+	-fx-background-color: #e9e9e9;
+	-fx-background-radius: 40;
+	-fx-font-size: 18;
+	-fx-font-weight: normal;
+}
+
+.date-picker {
+	-fx-background-color: #e9e9e9;
+	-fx-background-radius: 20;
+}
