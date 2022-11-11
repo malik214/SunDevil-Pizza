@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -18,6 +19,7 @@ public class Customer_Payment_Controller {
 
 	@FXML
 	Label labelText;
+
 	
 
 	public void switchToConfirmation(ActionEvent event) throws IOException {
@@ -34,15 +36,15 @@ public class Customer_Payment_Controller {
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+
 	}
 
 	public void displayPizza(Pizza pizza) {
-		
-		labelText.setText(String.format("%-15s %15s", pizza.getCrust(),"$12.99\n") + pizza.getToppings());
-		
+
+		labelText.setText(String.format("%-15s %15s", pizza.getCrust(), "$12.99\n") + pizza.getToppings());
 
 	}
-	
+
 	public void displayDate() {
 		
 	}

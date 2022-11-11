@@ -1,7 +1,10 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +12,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
 import javafx.stage.Stage;
 
 public class Customer_Order_Controller {
@@ -17,8 +22,17 @@ public class Customer_Order_Controller {
 	private Parent root;
 
 	Pizza myPizza = new Pizza();
-
-
+	
+	
+	
+	
+	
+	
+	@FXML					 // I can use this so set a component upon the page loading
+	public void initialize() {
+		
+	}
+	
 	public void switchToPayment(ActionEvent event) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Customer_Payment.fxml"));
@@ -35,80 +49,19 @@ public class Customer_Order_Controller {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	public void changeToppings(ActionEvent event) throws IOException {
+        CheckBox source = (CheckBox)event.getSource();
+        myPizza.setToppings(source.getText());
+	}
 
-	public void setStuffedCrust(ActionEvent event) throws IOException {
+	public void setCrust(ActionEvent event) throws IOException{
+		RadioButton source = (RadioButton)event.getSource();
 		myPizza.setCrust("");
-		myPizza.setCrust("Stuffed Crust");
+		myPizza.setCrust(source.getText());
 	}
+	
 
-	public void setCrispyCrust(ActionEvent event) throws IOException {
-		myPizza.setCrust("");
-		myPizza.setCrust("Thin N' Crispy");
-	}
-
-	public void setPanCrust(ActionEvent event) throws IOException {
-		myPizza.setCrust("");
-		myPizza.setCrust("Pan Pizza");
-	}
-
-	public void addSausage(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Sausage");
-	}
-
-	public void addPepperoni(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Pepperoni");
-	}
-
-	public void addBacon(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Bacon");
-	}
-
-	public void addMeatball(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Meatball");
-	}
-
-	public void addHam(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Ham");
-	}
-
-	public void addBeef(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Beef");
-	}
-
-	public void addMushrooms(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Mushrooms");
-	}
-
-	public void addOnions(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Onions");
-	}
-
-	public void addPineapple(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Pineapple");
-	}
-
-	public void addBellPeppers(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Bell Peppers");
-	}
-
-	public void addTomatoes(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Tomatoes");
-	}
-
-	public void addJalapenos(ActionEvent event) throws IOException {
-
-		myPizza.setToppings("Jalapeños");
-	}
+	
 
 }
