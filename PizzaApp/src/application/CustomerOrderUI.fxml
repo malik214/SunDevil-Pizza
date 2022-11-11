@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
@@ -12,9 +13,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Customer_Order_Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CustomerOrderController">
    <children>
       <ImageView fitHeight="246.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -43,15 +45,15 @@
                   </Pane>
                   <VBox prefHeight="324.0" prefWidth="290.0" style="-fx-background-color: 0;" VBox.vgrow="ALWAYS">
                      <children>
-                        <RadioButton mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Cheese">
+                        <RadioButton mnemonicParsing="false" onAction="#changePizzaType" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Cheese">
                            <padding>
                               <Insets left="25.0" />
                            </padding>
                            <toggleGroup>
-                              <ToggleGroup fx:id="PizzaType" />
+                              <ToggleGroup fx:id="pizzaTypeToggleGroup" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Pepperoni" toggleGroup="$PizzaType">
+                        <RadioButton mnemonicParsing="false" onAction="#changePizzaType" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Pepperoni" toggleGroup="$pizzaTypeToggleGroup">
                            <padding>
                               <Insets left="25.0" />
                            </padding>
@@ -59,7 +61,7 @@
                               <Insets top="16.0" />
                            </VBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Vegetable" toggleGroup="$PizzaType">
+                        <RadioButton mnemonicParsing="false" onAction="#changePizzaType" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Vegetable" toggleGroup="$pizzaTypeToggleGroup">
                            <padding>
                               <Insets left="25.0" />
                            </padding>
@@ -85,20 +87,12 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="290.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Mushroom">
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Mushroom">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Olives">
-                                 <padding>
-                                    <Insets left="25.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets top="16.0" />
-                                 </VBox.margin>
-                              </CheckBox>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Sausage">
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Olives">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>
@@ -106,7 +100,15 @@
                                     <Insets top="16.0" />
                                  </VBox.margin>
                               </CheckBox>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Bell Peppers">
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Sausage">
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Bell Peppers">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>
@@ -119,20 +121,12 @@
                         <Pane prefHeight="0.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                         <VBox prefHeight="200.0" prefWidth="290.0">
                            <children>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Onion">
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Onion">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>
                               </CheckBox>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Extra Cheese">
-                                 <padding>
-                                    <Insets left="25.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets top="16.0" />
-                                 </VBox.margin>
-                              </CheckBox>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Ham">
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Extra Cheese">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>
@@ -140,7 +134,15 @@
                                     <Insets top="16.0" />
                                  </VBox.margin>
                               </CheckBox>
-                              <CheckBox mnemonicParsing="false" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Bacon">
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Ham">
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin>
+                              </CheckBox>
+                              <CheckBox mnemonicParsing="false" onAction="#changeToppings" prefHeight="72.0" prefWidth="290.0" styleClass="rounded-button" text="Bacon">
                                  <padding>
                                     <Insets left="25.0" />
                                  </padding>
@@ -166,9 +168,9 @@
                   </Pane>
                   <VBox prefHeight="324.0" prefWidth="290.0" style="-fx-background-color: 0;" VBox.vgrow="ALWAYS">
                      <children>
-                        <Pane prefHeight="69.0" prefWidth="290.0" styleClass="date-picker">
+                        <Pane prefHeight="72.0" prefWidth="290.0" styleClass="date-picker">
                            <children>
-                              <DatePicker layoutX="20.0" layoutY="19.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="250.0" promptText="Select pickup time" />
+                              <DatePicker layoutX="20.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" onAction="#setPickupDate" prefHeight="32.0" prefWidth="250.0" promptText="Select pickup time" />
                            </children>
                         </Pane>
                         <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" styleClass="sub-header">
@@ -176,13 +178,19 @@
                               <Text layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="header" text="Pickup Time" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="290.0" />
                            </children>
                         </Pane>
-                        <Pane prefHeight="69.0" prefWidth="290.0" styleClass="date-picker">
+                        <Pane prefHeight="72.0" prefWidth="290.0" styleClass="date-picker">
                            <children>
-                              <TextField layoutX="20.0" layoutY="19.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="250.0" promptText="8:30pm" />
+                              <TextField layoutX="20.0" layoutY="20.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="250.0" promptText="8:30pm" />
+                              <Slider blockIncrement="0.083333333333333" layoutX="20.0" layoutY="29.0" majorTickUnit="3.0" max="24.0" minorTickCount="5" prefHeight="32.0" prefWidth="250.0" value="17.5" visible="false" />
+                              <Text layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #000;" text="5:30 pm" textAlignment="CENTER" textOrigin="CENTER" visible="false" wrappingWidth="290.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </Pane>
                         <Pane prefHeight="0.0" prefWidth="290.0" VBox.vgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="286.0" style="-fx-background-color: #ffc627;" styleClass="rounded-button" text="Checkout">
+                        <Button mnemonicParsing="false" onAction="#checkoutPizza" prefHeight="80.0" prefWidth="286.0" text="Checkout">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>

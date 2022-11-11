@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Customer_Order_Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProcessorViewController">
    <children>
       <ImageView fitHeight="246.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -42,25 +42,25 @@
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Ryan Skabelund" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Ryan Skabelund" textOrigin="CENTER" wrappingWidth="226.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Email:" textOrigin="CENTER" wrappingWidth="226.0">
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="rskabelu@asu.edu" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="emailText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="rskabelu@asu.edu" textOrigin="CENTER" wrappingWidth="226.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Order Time:" textOrigin="CENTER" wrappingWidth="226.0">
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Oct 7, 7:00pm" textOrigin="CENTER" wrappingWidth="226.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Pick-up Time:" textOrigin="CENTER" wrappingWidth="226.0">
+                        <Text fx:id="orderTimeText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Oct 7, 7:00pm" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Estimated Pickup Time:" textOrigin="CENTER" wrappingWidth="226.0">
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Oct 7, 7:30pm" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="estPickupTimeText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Oct 7, 7:30pm" textOrigin="CENTER" wrappingWidth="226.0" />
                      </children>
                   </VBox>
                </children>
@@ -79,13 +79,13 @@
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Pepperoni" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="pizzaTypeText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Pepperoni" textOrigin="CENTER" wrappingWidth="226.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Toppings:" textOrigin="CENTER" wrappingWidth="226.0">
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Onions, extra cheese" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="toppingsText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Onions, extra cheese" textOrigin="CENTER" wrappingWidth="226.0" />
                      </children>
                   </VBox>
                </children>
@@ -107,13 +107,13 @@
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="\$21.96" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="totalCostText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="\$21.96" textOrigin="CENTER" wrappingWidth="226.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Payment Method:" textOrigin="CENTER" wrappingWidth="226.0">
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="ASURITE Id" textOrigin="CENTER" wrappingWidth="226.0" />
+                        <Text fx:id="paymentMethodText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="ASURITE Id" textOrigin="CENTER" wrappingWidth="226.0" />
                      </children>
                   </VBox>
                </children>
@@ -138,19 +138,22 @@
                               <Insets left="25.0" />
                            </padding>
                            <toggleGroup>
-                              <ToggleGroup fx:id="ProcessOrder" />
+                              <ToggleGroup fx:id="processOrderToggleGroup" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" styleClass="rounded-button" text="Deny" toggleGroup="$ProcessOrder">
+                        <RadioButton mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" styleClass="rounded-button" text="Deny">
                            <padding>
                               <Insets left="25.0" />
                            </padding>
                            <VBox.margin>
                               <Insets top="16.0" />
                            </VBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="processOrder" />
+                           </toggleGroup>
                         </RadioButton>
                         <Pane prefHeight="0.0" prefWidth="290.0" VBox.vgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="286.0" styleClass="rounded-button" text="Submit">
+                        <Button mnemonicParsing="false" onAction="#submit" prefHeight="80.0" prefWidth="286.0" text="Submit">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
