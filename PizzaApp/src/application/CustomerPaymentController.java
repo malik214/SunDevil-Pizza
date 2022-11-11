@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
 public class CustomerPaymentController {
@@ -42,8 +43,30 @@ public class CustomerPaymentController {
 		pizzaTypeText.setText(myPizza.getPizzaType());
 		toppingsText.setText(String.join(", ", myPizza.getToppings()));
 		
-		// probably have setPrice method instead
-		totalCostText.setText("$21.22");
+		
+		myPizza.setPrice();
+		totalCostText.setText(myPizza.getPrice());
+	}
+	
+	
+	public void displayPickupTime(String pickupDate, String pickupTime) {
+		estPickupTimeText.setText(pickupDate + " @ " + pickupTime);
+	}
+	
+	
+	public void setCustomerName(KeyEvent event) throws IOException{
+		myCustomer.setName(((TextField)event.getSource()).getText());
+		System.out.println(myCustomer.getName());
+	}
+	
+	public void setCustomerASUID(KeyEvent event) throws IOException{
+		myCustomer.setAsuriteID(((TextField)event.getSource()).getText());
+		System.out.println(myCustomer.getAsuriteID());
+	}
+	
+	public void setCustomerPassword(KeyEvent event)throws IOException{
+		myCustomer.setPassword(((TextField)event.getSource()).getText());
+		System.out.println(myCustomer.getPassword());
 	}
 	
 	public void placeOrder(ActionEvent event) throws IOException {
@@ -54,6 +77,9 @@ public class CustomerPaymentController {
 			Parent root = loader.load();
 			
 			CustomerConfirmationController confirmationController = loader.getController();
+			confirmationController.setCustomer(myCustomer);
+			confirmationController.setThankYouMessage();
+			confirmationController.setEmailMessage();
 			
 			Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);

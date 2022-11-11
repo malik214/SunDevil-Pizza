@@ -6,9 +6,11 @@ import java.util.Set;
 public class Pizza {
 	private String pizzaType;
 	private Set<String> toppings;
+	private double price;
 
 	Pizza() {
 		this.toppings = new HashSet<String>();
+		price = 12.99;
 	}
 
 	public String getPizzaType() {
@@ -29,6 +31,15 @@ public class Pizza {
 
 	public void removeTopping(String topping) {
 		this.toppings.remove(topping);
+	}
+	
+	public void setPrice() {
+		price += 1.99 * toppings.size();
+	}
+	
+	public String getPrice() {
+		
+		return "$" + Double.toString(price);
 	}
 
 }

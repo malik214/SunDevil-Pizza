@@ -39,7 +39,7 @@
                   </Pane>
                   <VBox styleClass="list-container" VBox.vgrow="ALWAYS">
                      <children>
-                        <Text fx:id="customerInfoName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Ryan Skabelund, thank you for your order with SunDevil Pizza!" textOrigin="CENTER" wrappingWidth="540.0">
+                        <Text fx:id="thankYouMessageText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Customer, thank you for your order with SunDevil Pizza!" textOrigin="CENTER" wrappingWidth="540.0">
                            <VBox.margin>
                               <Insets top="22.0" />
                            </VBox.margin>
@@ -49,7 +49,7 @@
                               <Insets top="16.0" />
                            </VBox.margin>
                         </Text>
-                        <Text fx:id="customerInfoEmail" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="rskabelu@asu.edu" textOrigin="CENTER" wrappingWidth="540.0" />
+                        <Text fx:id="emailText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="asuriteID@asu.edu" textOrigin="CENTER" wrappingWidth="540.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Order Status:" textOrigin="CENTER" wrappingWidth="540.0">
                            <VBox.margin>
                               <Insets top="16.0" />
