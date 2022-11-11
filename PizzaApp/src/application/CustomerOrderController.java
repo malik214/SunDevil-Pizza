@@ -42,7 +42,7 @@ public class CustomerOrderController {
 
 		for (int i = 1; i+time.getHour() <= 20; i++) {
 			String suffix = "AM";
-			int hour = time.getHour() + 1;
+			int hour = time.getHour() + i;
 			
 			if (hour > 12) {
 				hour-=12;
@@ -51,8 +51,8 @@ public class CustomerOrderController {
 			
 			
 			
-			timeSelect.add(String.valueOf((time.getHour() + i) - 12) + ":00 " + suffix);
-			timeSelect.add(String.valueOf((time.getHour() + i) - 12) + ":30 " + suffix);
+			timeSelect.add(String.valueOf((hour)) + ":00 " + suffix);
+			timeSelect.add(String.valueOf(hour) + ":30 " + suffix);
 		}
 
 		times.setItems(timeSelect);
