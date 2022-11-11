@@ -31,7 +31,7 @@ public class CustomerConfirmationController {
 	}
 
 	public void setThankYouMessage() {
-		thankYouMessageText.setText(myCustomer.getName() + " thank you for your order with SunDevil Pizza!");
+		thankYouMessageText.setText(myCustomer.getName() + ", thank you for your order with SunDevil Pizza!");
 	}
 
 	public void setEmailMessage() {
