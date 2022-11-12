@@ -19,27 +19,32 @@ public class CustomerConfirmationController {
 	private Text thankYouMessageText;
 	@FXML
 	private Text emailText;
-//	@FXML
-//	private Text orderStatusText;
-//	@FXML
-//	private Text estPickupTimeText;
+	@FXML
+	private Text orderStatusText;
+	@FXML
+	private Text pickupTimeText;
 
-	private Customer myCustomer;
+	private Order myOrder;
 
-	public void setCustomer(Customer customer) {
-		myCustomer = customer;
+	public void setOrder(Order order) {
+		myOrder = order;
+	}
+	
+	public void setStatus() {
+		orderStatusText.setText(myOrder.getStatus());
 	}
 
 	public void setThankYouMessage() {
-		thankYouMessageText.setText(myCustomer.getName() + ", thank you for your order with SunDevil Pizza!");
+		thankYouMessageText
+				.setText(myOrder.getCustomer().getName() + ", thank you for your order with SunDevil Pizza!");
 	}
 
 	public void setEmailMessage() {
-		emailText.setText(myCustomer.getAsuriteID() + "@asu.edu");
+		emailText.setText(myOrder.getCustomer().getAsuriteID() + "@asu.edu");
 	}
 
 	public void displayPickupTime() {
-
+		pickupTimeText.setText(myOrder.getDate().getMonthValue()+ "/" + myOrder.getDate().getDayOfMonth() + "/" + myOrder.getDate().getYear() + ", " + myOrder.getTime());
 	}
 
 }

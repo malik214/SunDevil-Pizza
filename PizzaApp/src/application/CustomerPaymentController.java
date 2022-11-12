@@ -38,14 +38,17 @@ public class CustomerPaymentController {
 
 	private Pizza myPizza;
 	private Customer myCustomer;
+	private Order myOrder;
 
 	@FXML
 	public void initialize() {
 		myCustomer = new Customer();
+		myOrder = new Order();
 	}
 
 	public void setPizza(Pizza pizza) {
 		myPizza = pizza;
+		myOrder.setPizza(myPizza);
 		this.displayPizza();
 	}
 
@@ -130,6 +133,9 @@ public class CustomerPaymentController {
 
 		day = String.valueOf(pickupDate.getDayOfMonth());
 
+		myOrder.setDate(pickupDate);
+		myOrder.setTime(pickupTime);
+
 		if (today.isEqual(pickupDate)) {
 			estPickupTimeText.setText("Today, " + pickupTime);
 		}
@@ -163,11 +169,14 @@ public class CustomerPaymentController {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerConfirmationUI.fxml"));
 			Parent root = loader.load();
 
+			myOrder.setCustomer(myCustomer);
+			myOrder.setStatus("Order Received");
 			CustomerConfirmationController confirmationController = loader.getController();
-			confirmationController.setCustomer(myCustomer);
+			confirmationController.setOrder(myOrder);
 			confirmationController.setThankYouMessage();
 			confirmationController.setEmailMessage();
-			
+			confirmationController.displayPickupTime();
+			confirmationController.setStatus();
 
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			Scene scene = new Scene(root);

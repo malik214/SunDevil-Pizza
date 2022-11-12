@@ -30,7 +30,7 @@ public class CustomerOrderController {
 	private LocalTime time;
 
 	@FXML
-	ChoiceBox times;
+	ChoiceBox<String> times;
 
 	@FXML
 	private ToggleGroup pizzaTypeToggleGroup;
