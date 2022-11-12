@@ -67,16 +67,22 @@ public class CustomerPaymentController {
 		LocalTime currTime = LocalTime.now();
 
 		if (pickupTime.charAt(0) == ('A')) {
-			int hour = currTime.getHour();
+			LocalTime estTime = currTime.plusMinutes(70);
+			
+			int hour = estTime.getHour();
 			String suffix = "AM";
 
 			if (hour > 12) {
 				hour -= 12;
 				suffix = "PM";
 			}
+			
+			if (hour == 12) {
+				suffix = "PM";
+			}
 
 			String pickupHour = String.valueOf(hour);
-			String pickupMin = String.valueOf(currTime.plusMinutes(20).getMinute());
+			String pickupMin = String.valueOf(estTime.getMinute());
 			
 
 			pickupTime = (pickupHour + ":" + pickupMin + " " + suffix);
