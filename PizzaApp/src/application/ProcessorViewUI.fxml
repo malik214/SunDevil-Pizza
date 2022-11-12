@@ -49,12 +49,6 @@
                            </VBox.margin>
                         </Text>
                         <Text fx:id="emailText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="rskabelu@asu.edu" textOrigin="CENTER" wrappingWidth="226.0" />
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Order Time:" textOrigin="CENTER" wrappingWidth="226.0">
-                           <VBox.margin>
-                              <Insets top="16.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text fx:id="orderTimeText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item" text="Oct 7, 7:00pm" textOrigin="CENTER" wrappingWidth="226.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="list-item-title" text="Estimated Pickup Time:" textOrigin="CENTER" wrappingWidth="226.0">
                            <VBox.margin>
                               <Insets top="16.0" />

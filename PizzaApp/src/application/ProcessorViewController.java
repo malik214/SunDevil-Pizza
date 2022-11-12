@@ -16,10 +16,12 @@ import javafx.scene.text.Text;
 
 public class ProcessorViewController {
 	private Order currOrder;
+	private Customer currCustomer;
+	private Pizza currPizza;
 	
 	@FXML private Text nameText;
 	@FXML private Text emailText;
-	@FXML private Text orderTimeText;
+	// @FXML private Text orderTimeText;
 	@FXML private Text estPickupTimeText;
 	
 	@FXML private Text pizzaTypeText;
@@ -34,10 +36,29 @@ public class ProcessorViewController {
 	//This method gets called in the previous scene to pass you the order object
 	public void setOrder(Order order) {
 		currOrder = order;
+		currCustomer = order.getCustomer();
+		currPizza = order.getPizza();
 	}
 	
+	public void displayCustomerInfo() throws IOException {
+		nameText.setText(currCustomer.getName());
+		emailText.setText(currCustomer.getAsuriteID() + "@asu.edu");
+	}
+
+	public void displayOrderPickupInfo() {
+		estPickupTimeText.setText(currOrder.getDate().getMonthValue() + "/" + currOrder.getDate().getDayOfMonth() + "/"
+				+ currOrder.getDate().getYear() + ", " + currOrder.getTime());
+	}
 	
+	public void displayPizzaInfo() {
+		pizzaTypeText.setText(currPizza.getPizzaType());
+		// toppingsText.setText(currPizza.getToppings());
+	}
 	
+	public void displayPaymentInfo() {
+		totalCostText.setText(currPizza.getPrice());
+		paymentMethodText.setText(currCustomer.getAsuriteID());
+	}
 	
 	public void submit(ActionEvent event) throws IOException {
 		RadioButton selectedToggle = (RadioButton)processOrderToggleGroup.getSelectedToggle();
@@ -46,6 +67,7 @@ public class ProcessorViewController {
 			if (isApproved) {
 				System.out.println("Approved");
 				// send to chef
+				currOrder.setStatus("READY to COOK");
 			}
 			else {
 				System.out.println("Denied");

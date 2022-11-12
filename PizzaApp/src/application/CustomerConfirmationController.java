@@ -54,6 +54,10 @@ public class CustomerConfirmationController {
 
 		ProcessorViewController pvc = loader.getController();
 		pvc.setOrder(myOrder);
+		pvc.displayCustomerInfo();
+		pvc.displayOrderPickupInfo();
+		pvc.displayPizzaInfo();
+		pvc.displayPaymentInfo();
 
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene scene = new Scene(root);
