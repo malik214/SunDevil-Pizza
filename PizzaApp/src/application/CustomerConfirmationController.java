@@ -29,7 +29,7 @@ public class CustomerConfirmationController {
 	public void setOrder(Order order) {
 		myOrder = order;
 	}
-	
+
 	public void setStatus() {
 		orderStatusText.setText(myOrder.getStatus());
 	}
@@ -44,7 +44,21 @@ public class CustomerConfirmationController {
 	}
 
 	public void displayPickupTime() {
-		pickupTimeText.setText(myOrder.getDate().getMonthValue()+ "/" + myOrder.getDate().getDayOfMonth() + "/" + myOrder.getDate().getYear() + ", " + myOrder.getTime());
+		pickupTimeText.setText(myOrder.getDate().getMonthValue() + "/" + myOrder.getDate().getDayOfMonth() + "/"
+				+ myOrder.getDate().getYear() + ", " + myOrder.getTime());
+	}
+
+	public void switchToProcessorView(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("ProcessorViewUI.fxml"));
+		Parent root = loader.load();
+
+		ProcessorViewController pvc = loader.getController();
+		pvc.setOrder(myOrder);
+
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 
 }

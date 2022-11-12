@@ -15,6 +15,8 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 public class ProcessorViewController {
+	private Order currOrder;
+	
 	@FXML private Text nameText;
 	@FXML private Text emailText;
 	@FXML private Text orderTimeText;
@@ -27,6 +29,15 @@ public class ProcessorViewController {
 	@FXML private Text paymentMethodText;
 
 	@FXML private ToggleGroup processOrderToggleGroup;
+	
+	
+	//This method gets called in the previous scene to pass you the order object
+	public void setOrder(Order order) {
+		currOrder = order;
+	}
+	
+	
+	
 	
 	public void submit(ActionEvent event) throws IOException {
 		RadioButton selectedToggle = (RadioButton)processOrderToggleGroup.getSelectedToggle();
@@ -44,4 +55,6 @@ public class ProcessorViewController {
 			System.out.println("Nothing selected");
 		}
 	}
+	
+	
 }
