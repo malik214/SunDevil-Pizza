@@ -67,7 +67,7 @@ public class CustomerPaymentController {
 		LocalTime currTime = LocalTime.now();
 
 		if (pickupTime.charAt(0) == ('A')) {
-			LocalTime estTime = currTime.plusMinutes(70);
+			LocalTime estTime = currTime.plusMinutes(20);
 			
 			int hour = estTime.getHour();
 			String suffix = "AM";
