@@ -76,7 +76,8 @@ public class CustomerPaymentController {
 			}
 
 			String pickupHour = String.valueOf(hour);
-			String pickupMin = String.valueOf(currTime.getMinute() + 20);
+			String pickupMin = String.valueOf(currTime.plusMinutes(20).getMinute());
+			
 
 			pickupTime = (pickupHour + ":" + pickupMin + " " + suffix);
 		}

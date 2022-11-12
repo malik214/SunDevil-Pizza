@@ -49,6 +49,10 @@ public class CustomerOrderController {
 				suffix = "PM";
 			}
 			
+			if (hour == 12) {
+				suffix = "PM";
+			}
+			
 			
 			
 			timeSelect.add(String.valueOf((hour)) + ":00 " + suffix);
