@@ -72,6 +72,21 @@ public class ProcessorViewController {
 			else {
 				System.out.println("Denied");
 			}
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("ChefViewUI.fxml"));
+			Parent root = loader.load();
+
+			ChefViewController chef = loader.getController();
+			chef.setOrder(currOrder);
+			chef.setNameText();
+			chef.setEmailText();
+			chef.displayOrderTimeText();
+			chef.displayEstPickupTimeText();
+			chef.displayPizzaInfo();
+			
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 		else {
 			System.out.println("Nothing selected");
