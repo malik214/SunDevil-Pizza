@@ -55,6 +55,7 @@ public class CustomerConfirmationController {
 		ProcessorViewController pvc = loader.getController();
 		pvc.setOrder(myOrder);
 		pvc.displayCustomerInfo();
+		pvc.displayOrderTimeText();
 		pvc.displayOrderPickupInfo();
 		pvc.displayPizzaInfo();
 		pvc.displayPaymentInfo();

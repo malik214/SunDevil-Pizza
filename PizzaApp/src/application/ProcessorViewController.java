@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +23,7 @@ public class ProcessorViewController {
 	
 	@FXML private Text nameText;
 	@FXML private Text emailText;
-	// @FXML private Text orderTimeText;
+	@FXML private Text orderTimeText;
 	@FXML private Text estPickupTimeText;
 	
 	@FXML private Text pizzaTypeText;
@@ -31,6 +33,8 @@ public class ProcessorViewController {
 	@FXML private Text paymentMethodText;
 
 	@FXML private ToggleGroup processOrderToggleGroup;
+	private LocalTime time;
+	private LocalDate date;
 	
 	
 	//This method gets called in the previous scene to pass you the order object
@@ -43,6 +47,33 @@ public class ProcessorViewController {
 	public void displayCustomerInfo() throws IOException {
 		nameText.setText(currCustomer.getName());
 		emailText.setText(currCustomer.getAsuriteID() + "@asu.edu");
+	}
+	
+	public void displayOrderTimeText() {
+		time = LocalTime.now();
+		date = LocalDate.now();
+		
+		String minutes;
+		
+		String suffix = "AM";
+		int hour = time.getHour();
+		
+		if (hour > 12) {
+			hour -=12;
+			suffix = "PM";
+		}
+		
+		if (hour == 12) {
+			suffix = "PM";
+		}
+	
+		
+		if(time.getMinute() < 10)
+			minutes = "0" + String.valueOf(time.getMinute());
+		else
+			minutes = String.valueOf(time.getMinute());
+			
+		orderTimeText.setText(date.getMonthValue() + "/" + date.getDayOfMonth() + "/" + date.getYear() + ", " + String.valueOf(hour) + ":" + minutes + " " + suffix); //maybe add date
 	}
 
 	public void displayOrderPickupInfo() {
