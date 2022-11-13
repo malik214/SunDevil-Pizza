@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.time.LocalDate;
 
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,29 +37,31 @@ public class ChefViewController {
 	private String orderStatus;
 	private Order myOrder;
 	
+	//initialize ChefViewController
 	public ChefViewController() {
-		// maybe have an orderStatus enum?
-		// potentially pass orderStatus as an argument too
 		orderStatus = "READY to COOK";
 	}
 	
+	//get order and set it
 	public void setOrder(Order order) {
 		myOrder = order;
 	}
 	
+	//get name from order and set
 	public void setNameText() {
 		nameText.setText(myOrder.getCustomer().getName());
 	}
 	
+	//get email from order and set
 	public void setEmailText() {
 		emailText.setText(myOrder.getCustomer().getAsuriteID() + "@asu.edu");
 	}
 	
+	//find time of order and display
 	public void displayOrderTimeText() {
 		time = LocalTime.now();
 		date = LocalDate.now();
-		String month = "";
-		String day;
+		
 		String minutes;
 		
 		String suffix = "AM";
@@ -72,75 +76,28 @@ public class ChefViewController {
 			suffix = "PM";
 		}
 	
-		switch (date.getMonthValue()) {
-		case 1:
-			month = "Jan";
-			break;
-
-		case 2:
-			month = "Feb";
-			break;
-
-		case 3:
-			month = "Mar";
-			break;
-
-		case 4:
-			month = "Apr";
-			break;
-
-		case 5:
-			month = "May.";
-			break;
-
-		case 6:
-			month = "June";
-			break;
-
-		case 7:
-			month = "July";
-			break;
-
-		case 8:
-			month = "Aug";
-			break;
-
-		case 9:
-			month = "Sept";
-			break;
-
-		case 10:
-			month = "Oct";
-			break;
-
-		case 11:
-			month = "Nov";
-			break;
-
-		case 12:
-			month = "Dec";
-			break;
-		}
-		day = String.valueOf(date.getDayOfMonth());
 		
 		if(time.getMinute() < 10)
 			minutes = "0" + String.valueOf(time.getMinute());
 		else
 			minutes = String.valueOf(time.getMinute());
 			
-		orderTimeText.setText(month + " " + day + ", " + String.valueOf(hour) + ":" + minutes + " " + suffix); //maybe add date
+		orderTimeText.setText(date.getMonthValue() + "/" + date.getDayOfMonth() + "/" + date.getYear() + ", " + String.valueOf(hour) + ":" + minutes + " " + suffix); //maybe add date
 	}
-	
+
+	//get date and time of pickup time and display
 	public void displayEstPickupTimeText() {
 		estPickupTimeText.setText(myOrder.getDate().getMonthValue() + "/" + myOrder.getDate().getDayOfMonth() + "/"
 				+ myOrder.getDate().getYear() + ", " + myOrder.getTime());
 	}
 	
+	//get information of pizza from order and display
 	public void displayPizzaInfo() {
 		pizzaTypeText.setText(myOrder.getPizza().getPizzaType());
 		toppingsText.setText(String.join(", ", myOrder.getPizza().getToppings()));		
 	}
 	
+	//button updates order status
 	public void submit(ActionEvent event) throws IOException {
 		if (orderStatus.toUpperCase().contains("READY TO COOK")) {
 			orderStatus = "COOKING";
@@ -150,7 +107,10 @@ public class ChefViewController {
 		else if (orderStatus.toUpperCase().contains("COOKING")) {
 			orderStatus = "READY";
 			orderStatusText.setText(orderStatus);
-			// switch screens? close screen?
+			submitButton.setText("Exit");
+		}
+		else if (orderStatus.toUpperCase().contains("READY")) {
+			Platform.exit(); //Exit application
 		}
 	}
 }
