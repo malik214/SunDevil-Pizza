@@ -52,7 +52,7 @@ public class ProcessorViewController {
 	
 	public void displayPizzaInfo() {
 		pizzaTypeText.setText(currPizza.getPizzaType());
-		// toppingsText.setText(currPizza.getToppings());
+		toppingsText.setText(String.join(", ", currPizza.getToppings()));
 	}
 	
 	public void displayPaymentInfo() {
