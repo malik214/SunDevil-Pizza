@@ -20,7 +20,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class CustomerOrderController {
+public class CustomerOrderController 
+{
 	ObservableList<String> timeSelect = FXCollections.observableArrayList("ASAP (20 minutes)");
 
 	private Pizza myPizza = new Pizza();
@@ -36,20 +37,24 @@ public class CustomerOrderController {
 	private ToggleGroup pizzaTypeToggleGroup;
 
 	@FXML
-	public void initialize() {
+	public void initialize() 
+	{
 		today = LocalDate.now();
 		time = LocalTime.now();
 
-		for (int i = 1; i+time.getHour() <= 20; i++) {
+		for (int i = 1; i+time.getHour() <= 20; i++) 
+		{
 			String suffix = "AM";
 			int hour = time.getHour() + i;
 			
-			if (hour > 12) {
+			if (hour > 12) 
+			{
 				hour-=12;
 				suffix = "PM";
 			}
 			
-			if (hour == 12) {
+			if (hour == 12) 
+			{
 				suffix = "PM";
 			}
 			
@@ -65,25 +70,31 @@ public class CustomerOrderController {
 
 	}
 
-	public void changePizzaType(ActionEvent event) throws IOException {
+	public void changePizzaType(ActionEvent event) throws IOException 
+	{
 		String pizzaType = ((RadioButton) event.getSource()).getText();
 		myPizza.setPizzaType(pizzaType);
 		System.out.println(myPizza.getPizzaType());
 	}
 
-	public void changeToppings(ActionEvent event) throws IOException {
+	public void changeToppings(ActionEvent event) throws IOException 
+	{
 		CheckBox source = (CheckBox) event.getSource();
 		String topping = source.getText();
 		boolean isSelected = source.isSelected();
-		if (isSelected) {
+		if (isSelected) 
+		{
 			myPizza.addTopping(topping);
-		} else {
+		} 
+		else 
+		{
 			myPizza.removeTopping(topping);
 		}
 		System.out.println(myPizza.getToppings());
 	}
 
-	public void setPickupDate(ActionEvent event) throws IOException {
+	public void setPickupDate(ActionEvent event) throws IOException 
+	{
 		// Input needs verification
 
 		pickupDate = ((DatePicker) event.getSource()).getValue();
@@ -91,17 +102,20 @@ public class CustomerOrderController {
 
 	}
 
-	public void setPickupTime() throws IOException {
+	public void setPickupTime() throws IOException 
+	{
 		
 		pickupTime = (String) times.getValue();
 		
 
 	}
 
-	public void checkoutPizza(ActionEvent event) throws IOException {
+	public void checkoutPizza(ActionEvent event) throws IOException 
+	{
 
 		if (pizzaTypeToggleGroup.getSelectedToggle() != null
-				&& (pickupDate.isAfter(today) || pickupDate.isEqual(today))) {
+				&& (pickupDate.isAfter(today) || pickupDate.isEqual(today))) 
+		{
 			System.out.println("Checkout");
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerPaymentUI.fxml"));
@@ -116,7 +130,9 @@ public class CustomerOrderController {
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		} else {
+		} 
+		else 
+		{
 			System.out.println("No pizza type selected");
 		}
 	}
